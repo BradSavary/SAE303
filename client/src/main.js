@@ -45,6 +45,8 @@ V.init = function(){
     V.renderLessStockProduct();
     V.renderSalesEvolutionOption();
     V.renderCustomerOrderOption();
+    customerorderView.render(13);
+    salesevolutionView.render(1);
 
     C.setupEventListeners();
 }
