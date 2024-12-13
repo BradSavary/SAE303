@@ -11,7 +11,7 @@ class CustomerRepositery extends EntityRepository {
     public function findCustomerProduct($customer_id){
         $sql = $this->cnx->prepare("SELECT p.category, 
             CASE 
-            WHEN (SELECT COUNT(*) FROM Products p2 WHERE SUBSTRING_INDEX(p2.product_name, ' ', 1) = SUBSTRING_INDEX(p.product_name, ' ', 1)) > 1 
+            WHEN (SELECT COUNT(*) FROM Products p2 WHERE SUBSTRING_INDEX(p2.product_name, ' ', 1) = SUBSTRING_INDEX(p.product_name, ' ', 1)) > 1
             THEN p.product_name 
             ELSE SUBSTRING_INDEX(p.product_name, ' ', 1) 
             END as product_name, 

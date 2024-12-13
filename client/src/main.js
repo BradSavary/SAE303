@@ -44,9 +44,7 @@ V.init = function(){
     V.renderSalesPerCategory();
     V.renderLessStockProduct();
     V.renderSalesEvolutionOption();
-    V.renderCustomerOrder();
     V.renderCustomerOrderOption();
-    V.customerorder.innerHTML = "";
 
     C.setupEventListeners();
 }
@@ -99,7 +97,7 @@ V.renderSalesEvolutionOption = async function(){
 }
 
 V.renderCustomerOrder = async function(){
-    let data = await customerorderData.fetch();
+    let data = await customerorderData.fetchCloud();
     let html = customerorderView.render(data);
     V.customerorder.innerHTML = "";
     V.customerorder.innerHTML = html;
