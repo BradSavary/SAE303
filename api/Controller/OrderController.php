@@ -16,6 +16,13 @@ class OrderController extends Controller{
         if($orderstatus){
             return $this->orders->findByOrderStatus($orderstatus);
         }
+        $param = $request->getParam("sales");
+        if($param == "monthsales"){
+            return $this->orders->findSalesPerMonth();
+        }
+        else if($param == "categorysales"){
+            return $this->orders->findSalesPerMonthPerCategory();
+        }  
 
 }}
 

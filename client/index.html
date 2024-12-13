@@ -6,52 +6,121 @@
     <title>SAE3.DWeb-DI.03 base code</title>
     <script type="module" src="./src/main.js"></script>
 </head>
-<body class="bg-gray-100">
-    <section id="header"></section>
-    <section id="orderstatus"></section>
-    <div id="orderstatus_delivered"></div>
+<body class="">
+    <header id="header"><h1>DashBoard</h1></header>
+    <div id="orderstatus">
+        <div id="orderstatus_delivered"></div>
         <div id="orderstatus_pending"></div>
         <div id="orderstatus_shipping"></div>
+    </div>
+    <section id="mostsoldproduct"></section>
+    <section id="salespermonth"></section>
+    <section id="salespercategory"></section>
+    <section id="lessstockproduct"></section>
+    <section id="salesevolutions">
+        <div class="salesevolution__input-container"><input type="number" placeholder="Recherchez un id de produit" id="salesevolution_id"><select name="product_name" id="product_name"></select></div>
+    <div id="salesevolution"></div></section>
+    <section id="customerorders"><select name="" id="customer_name"></select>
+    <div id="customerorder"></div></section>
+    
 </body>
 </html>
 <style>
 body {
     font-family: Arial, sans-serif;
-    background-color: #f7fafc;
     margin: 0;
     padding: 0;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr;
+    height: 100vh;
 }
 
 #header {
-    background-color: #4a5568;
+    background-color: #333;
     color: white;
-    padding: 20px;
+    padding: 1rem;
     text-align: center;
 }
 
+h1{
+    margin: 0;
+}
+
+section {
+    min-height: 25rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    margin: 0.5rem;
+    background-color: #f9f9f9;
+}
+
 #orderstatus {
-    margin: 20px;
-    padding: 20px;
-    background-color: #edf2f7;
-    border-radius: 8px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
 }
 
-#orderstatus_delivered,
-#orderstatus_pending,
-#orderstatus_shipping {
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 5px;
+#orderstatus > div {
+    background-color: #fff;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    text-align: center;
 }
 
-#orderstatus_delivered {
-    background-color: #c6f6d5;
+#customerorders {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
 }
 
-#orderstatus_pending {
-    background-color: #fefcbf;
+.salesevolution__input-container{
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: row;
 }
 
-#orderstatus_shipping {
-    background-color: #bee3f8;
-}</style>
+input, select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+input:focus, select:focus {
+    border-color: #333;
+    outline: none;
+}
+
+select {
+    background-color: #fff;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray"><path d="M4 6l4 4 4-4z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    background-size: 1rem;
+}
+
+#salesevolution{
+    height: 25rem;
+}
+
+#customerorder{
+    height: 25rem;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    body {
+        grid-template-columns: 1fr 3fr;
+    }
+
+    section {
+        margin: 1rem;
+    }
+}
+
+</style>

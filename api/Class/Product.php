@@ -32,42 +32,15 @@ class Product implements JsonSerializable {
         return $this->product_name;
     }
 
-
-    public function setproductname($product_name):self {
-        $this->product_name = $product_name;
-        return $this;
-    }
-
-
-    public function setid($id):self {
-        $this->id = $id;
-        return $this;
-    }
-
     public function getprice() {
         return $this->price;
-    }
-
-    public function setprice($price):self {
-        $this->price = $price;
-        return $this;
     }
 
     public function getquantity() {
         return $this->quantity;
     }
 
-    public function setquantity($quantity):self {
-        $this->quantity = $quantity;
-        return $this;
-    }
-
     public function getstock() {
         return $this->stock;
-    }
-
-    public function setstock($stock):self {
-        $this->stock = $stock;
-        return $this;
     }
 }
